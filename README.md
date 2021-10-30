@@ -14,7 +14,7 @@
 - [x] [`get_next_line_utils`](https://github.com/nandajfa/get_next_line/blob/main/get_next_line_utils.c)	-  all functions from libft that's necessary to run the GNL.
 - [x] [`get_next_line header`](https://github.com/nandajfa/get_next_line/blob/main/get_next_line.h)			- the header of the GNL.
 
-  ## :computer: Technologies
+## :computer: Technologies
 
 * [C](https://devdocs.io/)
 * [Makefile](https://www.gnu.org/software/make/manual/make.html)

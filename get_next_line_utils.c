@@ -6,11 +6,21 @@
 /*   By: jefernan <jefernan@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 17:56:33 by jefernan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:35:53 by jefernan         ###   ########.fr       */
+/*   Updated: 2021/10/29 18:21:48 by jefernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
