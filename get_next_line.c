@@ -6,7 +6,7 @@
 /*   By: jefernan <jefernan@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 15:11:32 by jefernan          #+#    #+#             */
-/*   Updated: 2021/10/30 20:24:52 by jefernan         ###   ########.fr       */
+/*   Updated: 2021/10/31 17:30:48 by jefernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ char 	*read_file(int fd, char 	**buffer, char **save)
 	while (ret > 0)
 	{
 		ret = read(fd, *buffer, BUFFER_SIZE);
-		if (ret == -1)
-			return (NULL);
+		if (ret == -1 || ret == 0)
+			return (make_line(save));
 		(*buffer)[ret] = '\0';
 		temp = *save;
 		*save = ft_strjoin(temp, *buffer);
@@ -67,12 +67,22 @@ char	*make_line(char **save)
 
 	i = 0;
 	j = 0;
-	while ((*save)[j] != '\n' && (*save)[j] != '\0')
+
+	if (**save == '\0')
+	{
+		free(*save);
+		*save = NULL;
+		return (NULL);
+	}
+	while ((*save)[j] != '\n')
 		j++;
 	line = ft_substr(*save, 0, j + 1);
 	n = ft_strchr(*save, '\n');
-	while (n[i])
+	if (n)
+	{
+		while (n[i])
 		i++;
-	*save = ft_substr(n, 1, i + 1);
+		*save = ft_substr(n, 1, i + 1);
+	}
 	return (line);
 }
