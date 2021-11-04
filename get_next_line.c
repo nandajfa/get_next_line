@@ -6,16 +6,17 @@
 /*   By: jefernan <jefernan@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 15:11:32 by jefernan          #+#    #+#             */
-/*   Updated: 2021/10/31 17:30:48 by jefernan         ###   ########.fr       */
+/*   Updated: 2021/11/04 10:05:40 by jefernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char 	*read_file(int fd, char 	**buffer, char **save);
+char	*read_file(int fd, char **buffer, char **save);
 char	*make_line(char **save);
+char	*new_line(char **save, char	*line);
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*save;
 	char		*buffer;
@@ -33,11 +34,10 @@ char *get_next_line(int fd)
 	return (line);
 }
 
-char 	*read_file(int fd, char 	**buffer, char **save)
+char	*read_file(int fd, char **buffer, char **save)
 {
 	int		ret;
 	char	*temp;
-	char	*n;
 	char	*line;
 
 	ret = 1;
@@ -50,8 +50,7 @@ char 	*read_file(int fd, char 	**buffer, char **save)
 		temp = *save;
 		*save = ft_strjoin(temp, *buffer);
 		free(temp);
-		n = ft_strchr(*save, '\n');
-		if (n != NULL)
+		if (ft_strchr(*save, '\n'))
 			break ;
 	}
 	line = make_line(save);
@@ -61,28 +60,47 @@ char 	*read_file(int fd, char 	**buffer, char **save)
 char	*make_line(char **save)
 {
 	int		i;
-	int		j;
-	char	*n;
 	char	*line;
 
 	i = 0;
-	j = 0;
-
-	if (**save == '\0')
-	{
-		free(*save);
-		*save = NULL;
+	if (*save[0] == '\0')
 		return (NULL);
-	}
-	while ((*save)[j] != '\n')
-		j++;
-	line = ft_substr(*save, 0, j + 1);
-	n = ft_strchr(*save, '\n');
-	if (n)
-	{
-		while (n[i])
+
+	while ((*save)[i] != '\0' && (*save)[i] != '\n')
 		i++;
-		*save = ft_substr(n, 1, i + 1);
+	if (ft_strchr(*save, '\n'))
+		line = ft_substr(*save, 0, i + 1);
+	else
+		line = ft_substr(*save, 0, i);
+	if (ft_strchr(*save, '\n'))
+		return (new_line(save, line));
+	return (line);
+}
+
+char	*new_line(char **save, char *line)
+{
+	int		i;
+	char	*temp;
+
+	if (ft_strchr(*save, '\n'))
+	{
+		i = ft_strlen(ft_strchr(*save, '\n'));
+		if (i > 1)
+		{
+			temp = *save;
+			*save = ft_substr (ft_strchr(temp, '\n'), 1, i - 1);
+			free (temp);
+		}
+		else
+		{
+			free (*save);
+			*save = NULL;
+		}
+	}
+	else
+	{
+		free (*save);
+		*save = NULL;
 	}
 	return (line);
 }
