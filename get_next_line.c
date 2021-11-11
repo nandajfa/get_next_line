@@ -65,7 +65,11 @@ char	*make_line(char **save)
 
 	i = 0;
 	if (*save[0] == '\0')
+	{
+		free (*save);
+		*save = NULL;
 		return (NULL);
+	}
 	line = new_line(save, i);
 	return (line);
 }
