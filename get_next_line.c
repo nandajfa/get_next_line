@@ -14,7 +14,8 @@
 
 char	*read_file(int fd, char **buffer, char **save);
 char	*make_line(char **save);
-char	*new_line(char **save, char	*line);
+char	*new_line(char **save, int i);
+void	free_str(char	**str);
 
 char	*get_next_line(int fd)
 {
@@ -65,6 +66,14 @@ char	*make_line(char **save)
 	i = 0;
 	if (*save[0] == '\0')
 		return (NULL);
+	line = new_line(save, i);
+	return (line);
+}
+
+char	*new_line(char **save, int i)
+{
+	char	*temp;
+	char	*line;
 
 	while ((*save)[i] != '\0' && (*save)[i] != '\n')
 		i++;
@@ -72,16 +81,6 @@ char	*make_line(char **save)
 		line = ft_substr(*save, 0, i + 1);
 	else
 		line = ft_substr(*save, 0, i);
-	if (ft_strchr(*save, '\n'))
-		return (new_line(save, line));
-	return (line);
-}
-
-char	*new_line(char **save, char *line)
-{
-	int		i;
-	char	*temp;
-
 	if (ft_strchr(*save, '\n'))
 	{
 		i = ft_strlen(ft_strchr(*save, '\n'));
@@ -92,15 +91,15 @@ char	*new_line(char **save, char *line)
 			free (temp);
 		}
 		else
-		{
-			free (*save);
-			*save = NULL;
-		}
+			free_str(save);
 	}
 	else
-	{
-		free (*save);
-		*save = NULL;
-	}
+		free_str(save);
 	return (line);
+}
+
+void	free_str(char	**str)
+{
+	free(*str);
+	*str = NULL;
 }
