@@ -10,7 +10,7 @@
 
 ### Functions from Standard
 
-- [ ] [`get_next_line`](https://github.com/nandajfa/get_next_line/blob/main/get_next_line.c)				- all non-libft functions that's necessary to run the GNL.
+- [x] [`get_next_line`](https://github.com/nandajfa/get_next_line/blob/main/get_next_line.c)				- all non-libft functions that's necessary to run the GNL.
 - [x] [`get_next_line_utils`](https://github.com/nandajfa/get_next_line/blob/main/get_next_line_utils.c)	-  all functions from libft that's necessary to run the GNL.
 - [x] [`get_next_line header`](https://github.com/nandajfa/get_next_line/blob/main/get_next_line.h)			- the header of the GNL.
 
