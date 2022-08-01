@@ -14,6 +14,51 @@
 - [x] [`get_next_line_utils`](https://github.com/nandajfa/get_next_line/blob/main/get_next_line_utils.c)	-  all functions from libft that's necessary to run the GNL.
 - [x] [`get_next_line header`](https://github.com/nandajfa/get_next_line/blob/main/get_next_line.h)			- the header of the GNL.
 
+
+## Getting started
+**Follow the steps below**
+```bash
+# Clone the project and access the folder
+git clone https://github.com/nandajfa/get_next_line.git && cd get_next_line/
+
+# Create a main file
+touch main.c
+```
+
+```c
+#include <stdio.h>
+#include <fcntl.h>
+#include "get_next_line.h"
+
+int main(void)
+{
+	char	*temp;
+	int	fd;
+
+	fd = open("file.txt", O_RDONLY);
+
+	while(1)
+	{
+		temp = get_next_line(fd);
+		if (!temp)
+		break ;
+		printf("%s", temp);
+		free(temp);
+	}
+	return (0);
+}
+```
+
+```bash
+# Compile the files, example:
+clang get_next_line.c get_next_line.h get_next_line_utils.c main.c
+
+# Execute your program
+./a.out
+
+# Well done!
+```
+
 ## :computer: Technologies
 
 * [C](https://devdocs.io/)
