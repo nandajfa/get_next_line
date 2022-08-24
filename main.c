@@ -8,9 +8,9 @@ int main()
 	  char *p = get_next_line(fd);
     while (p)
     {
-		     printf("%s", p);
-	       free(p);
-		     p = get_next_line(fd);
+	 printf("%s", p);
+	 free(p);
+	 p = get_next_line(fd);
     }
 	free(p);
   close(fd);
