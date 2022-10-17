@@ -68,7 +68,5 @@ clang get_next_line.c get_next_line.h get_next_line_utils.c main.c
 
  ## Autor
 
-Jessica Fernanda Alves Marques
-
-https://www.linkedin.com/in/jessica-fernanda-alves-marques-106651205/
+Made by jessica Fernanda 👋 [See my linkedin](https://www.linkedin.com/in/jessica-fernanda-106651205)
 
