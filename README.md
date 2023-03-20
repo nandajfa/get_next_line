@@ -1,8 +1,12 @@
 <h1 align="center">
-	42cursus' get_next_line
+	<img alt="badge libft" src="./gnl_dark.svg" />
 </h1>
 
+<div align="center">
+
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/nandajfa/get_next_line/blob/main/LICENSE)
+
+</div>
 
   ## 🗣️ About
 
@@ -66,7 +70,10 @@ clang get_next_line.c get_next_line.h get_next_line_utils.c main.c
 * [Shell](https://unixguide.readthedocs.io/en/latest/unixcheatsheet/)
 * [gcc](https://terminaldeinformacao.com/2015/10/08/como-instalar-e-configurar-o-gcc-no-windows-mingw/)
 
- ## Autor
+## Author
 
-Made by jessica Fernanda 👋 [See my linkedin](https://www.linkedin.com/in/jessica-fernanda-106651205)
-
+ | [<img src="https://avatars.githubusercontent.com/u/80687429?v=4" width=115><br><sub>Jessica Fernanda</sub>](https://github.com/nandajfa) |
+ | :---: |
+ 
+ [![Linkedin Badge](https://img.shields.io/badge/-Jessica-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jessica-fernanda-106651205)](https://www.linkedin.com/in/jessica-fernanda-106651205) 
+[![Gmail Badge](https://img.shields.io/badge/-nanda.jfa@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:nanda.jfa@gmail.com)](mailto:nanda.jfa@gmail.com)
